@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace Manual.Movement.Manager.Api
+namespace Manual.Movement.Manager.WebApi
 {
     public class BundleConfig
     {        

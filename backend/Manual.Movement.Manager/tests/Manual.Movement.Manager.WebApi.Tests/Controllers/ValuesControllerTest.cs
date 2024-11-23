@@ -1,5 +1,5 @@
-﻿using Manual.Movement.Manager.Api;
-using Manual.Movement.Manager.Api.Controllers;
+﻿using Manual.Movement.Manager.WebApi;
+using Manual.Movement.Manager.WebApi.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 
-namespace Manual.Movement.Manager.Api.Tests.Controllers
+namespace Manual.Movement.Manager.WebApi.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

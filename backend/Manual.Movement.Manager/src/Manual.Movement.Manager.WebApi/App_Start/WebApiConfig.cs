@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
-namespace Manual.Movement.Manager.Api
+namespace Manual.Movement.Manager.WebApi
 {
     public static class WebApiConfig
     {

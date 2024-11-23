@@ -9,8 +9,8 @@
     <ProjectGuid>{80183C7F-6616-4945-8DD0-CCA3938DDD72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Manual.Movement.Manager.Api.Tests</RootNamespace>
-    <AssemblyName>Manual.Movement.Manager.Api.Tests</AssemblyName>
+    <RootNamespace>Manual.Movement.Manager.WebApi.Tests</RootNamespace>
+    <AssemblyName>Manual.Movement.Manager.WebApi.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -109,8 +109,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Manual.Movement.Manager.Api\Manual.Movement.Manager.WebApi.csproj">
-      <Project>{F0601063-68BC-4C2B-8138-773D94C7005A}</Project>
+    <ProjectReference Include="..\..\src\Manual.Movement.Manager.WebApi\Manual.Movement.Manager.WebApi.csproj">
+      <Project>{f0601063-68bc-4c2b-8138-773d94c7005a}</Project>
       <Name>Manual.Movement.Manager.WebApi</Name>
     </ProjectReference>
   </ItemGroup>

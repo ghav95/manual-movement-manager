@@ -1,11 +1,11 @@
+using Manual.Movement.Manager.WebApi;
+using Swashbuckle.Application;
 using System.Web.Http;
 using WebActivatorEx;
-using Manual.Movement.Manager.Api;
-using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace Manual.Movement.Manager.Api
+namespace Manual.Movement.Manager.WebApi
 {
     public class SwaggerConfig
     {

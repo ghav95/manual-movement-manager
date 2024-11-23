@@ -1,9 +1,8 @@
-﻿using Manual.Movement.Manager.Api;
-using Manual.Movement.Manager.Api.Controllers;
+﻿using Manual.Movement.Manager.WebApi.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web.Mvc;
 
-namespace Manual.Movement.Manager.Api.Tests.Controllers
+namespace Manual.Movement.Manager.WebApi.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest
