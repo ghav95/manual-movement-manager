@@ -13,9 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Infrastructure.SqlServer", "src\Manual.Movement.Manager.Infrastructure.SqlServer\Manual.Movement.Manager.Infrastructure.SqlServer.csproj", "{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.WebApi.Tests", "tests\Manual.Movement.Manager.WebApi.Tests\Manual.Movement.Manager.WebApi.Tests.csproj", "{80183C7F-6616-4945-8DD0-CCA3938DDD72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.UnitTests", "tests\Manual.Movement.Manager.WebApi.Tests\Manual.Movement.Manager.UnitTests.csproj", "{80183C7F-6616-4945-8DD0-CCA3938DDD72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.WebApi", "src\Manual.Movement.Manager.WebApi\Manual.Movement.Manager.WebApi.csproj", "{F0601063-68BC-4C2B-8138-773D94C7005A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.IntegrationTests", "tests\Manual.Movement.Manager.IntegrationTests\Manual.Movement.Manager.IntegrationTests.csproj", "{D7C9315E-7739-4914-9169-D5B591159D05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{F0601063-68BC-4C2B-8138-773D94C7005A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0601063-68BC-4C2B-8138-773D94C7005A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0601063-68BC-4C2B-8138-773D94C7005A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7C9315E-7739-4914-9169-D5B591159D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C9315E-7739-4914-9169-D5B591159D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C9315E-7739-4914-9169-D5B591159D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C9315E-7739-4914-9169-D5B591159D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
 		{80183C7F-6616-4945-8DD0-CCA3938DDD72} = {B96C89D3-4423-4E97-BE3D-8C5AA4E95E13}
 		{F0601063-68BC-4C2B-8138-773D94C7005A} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
+		{D7C9315E-7739-4914-9169-D5B591159D05} = {B96C89D3-4423-4E97-BE3D-8C5AA4E95E13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22717260-2C64-468E-8C5D-8F5E9CE1E6E1}
