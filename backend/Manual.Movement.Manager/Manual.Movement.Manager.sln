@@ -7,9 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{689FB30E-768
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B96C89D3-4423-4E97-BE3D-8C5AA4E95E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Api", "src\Manual.Movement.Manager.Api\Manual.Movement.Manager.Api.csproj", "{F0601063-68BC-4C2B-8138-773D94C7005A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.WebApi", "src\Manual.Movement.Manager.Api\Manual.Movement.Manager.WebApi.csproj", "{F0601063-68BC-4C2B-8138-773D94C7005A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Api.Tests", "src\Manual.Movement.Manager.Api.Tests\Manual.Movement.Manager.Api.Tests.csproj", "{80183C7F-6616-4945-8DD0-CCA3938DDD72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Domain", "Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj", "{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Infrastructure.SqlServer", "Manual.Movement.Manager.Infrastructure.SqlServer\Manual.Movement.Manager.Infrastructure.SqlServer.csproj", "{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manual.Movement.Manager.Application", "Manual.Movement.Manager.Application\Manual.Movement.Manager.Application.csproj", "{EC3B1BBD-0BDF-4B49-9032-3361897D2719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,18 @@ Global
 		{80183C7F-6616-4945-8DD0-CCA3938DDD72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80183C7F-6616-4945-8DD0-CCA3938DDD72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80183C7F-6616-4945-8DD0-CCA3938DDD72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3B1BBD-0BDF-4B49-9032-3361897D2719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3B1BBD-0BDF-4B49-9032-3361897D2719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3B1BBD-0BDF-4B49-9032-3361897D2719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3B1BBD-0BDF-4B49-9032-3361897D2719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +50,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0601063-68BC-4C2B-8138-773D94C7005A} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
 		{80183C7F-6616-4945-8DD0-CCA3938DDD72} = {B96C89D3-4423-4E97-BE3D-8C5AA4E95E13}
+		{1BE1772B-6CBA-4233-BABE-4E5B1E679DD4} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
+		{965AE5F7-3F3B-4FC8-9B56-98E0F2B2298E} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
+		{EC3B1BBD-0BDF-4B49-9032-3361897D2719} = {689FB30E-768B-4E3B-9EC5-3F418CCD3185}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {22717260-2C64-468E-8C5D-8F5E9CE1E6E1}

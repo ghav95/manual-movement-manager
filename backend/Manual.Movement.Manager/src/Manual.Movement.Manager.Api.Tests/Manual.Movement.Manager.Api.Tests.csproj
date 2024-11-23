@@ -109,9 +109,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Manual.Movement.Manager.Api\Manual.Movement.Manager.Api.csproj">
+    <ProjectReference Include="..\Manual.Movement.Manager.Api\Manual.Movement.Manager.WebApi.csproj">
       <Project>{F0601063-68BC-4C2B-8138-773D94C7005A}</Project>
-      <Name>Manual.Movement.Manager.Api</Name>
+      <Name>Manual.Movement.Manager.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
