@@ -8,13 +8,11 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer
 {
     public class SqlServerDbContext : DbContext
     {
-        const string ConnectionString = "Server=localhost,1433;Database=FINANCIAL_TRANSACTIONS;User Id=SA;Password=BNPParibas;";
+        public SqlServerDbContext() : base ("SqlServerDbContext") {}
 
-        public SqlServerDbContext() : base (ConnectionString){}
-
-        public DbSet<Product> Products;
-        public DbSet<ProductCosif> ProductCosifs;
-        public DbSet<ManualHandling> ManualHandlings;
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCosif> ProductCosifs { get; set; }
+        public DbSet<ManualHandling> ManualHandlings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

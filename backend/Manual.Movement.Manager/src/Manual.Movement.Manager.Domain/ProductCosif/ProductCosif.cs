@@ -4,6 +4,8 @@ namespace Manual.Movement.Manager.Domain.ProductCosif
 {
     public class ProductCosif
     {
+        public ProductCosif(){}
+
         public ProductCosif(
             string productId,
             string cosifId, 
@@ -16,7 +18,7 @@ namespace Manual.Movement.Manager.Domain.ProductCosif
             Status = status ?? throw new ArgumentNullException(nameof(status));
         }
 
-        public string ProductId { get; }
+        public string ProductId { get; private set; }
         public string CosifId { get; private set; } 
         public string ClassificationId { get; private set; }
         public string Status { get; private set; } 

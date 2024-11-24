@@ -4,6 +4,9 @@ namespace Manual.Movement.Manager.Domain.ManualHandling
 {
     public class ManualHandling
     {
+
+        public ManualHandling(){}
+
         public ManualHandling(
             int month, 
             int year, 

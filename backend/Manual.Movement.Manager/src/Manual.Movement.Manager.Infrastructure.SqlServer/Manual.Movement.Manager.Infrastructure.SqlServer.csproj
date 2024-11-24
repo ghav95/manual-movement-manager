@@ -57,11 +57,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ManualHandlingConfiguration.cs" />
+    <Compile Include="Configuration\ProductConfiguration.cs" />
+    <Compile Include="Configuration\ProductCosifConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductRespository.cs" />
+    <Compile Include="SqlServerDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj">
+      <Project>{1be1772b-6cba-4233-babe-4e5b1e679dd4}</Project>
+      <Name>Manual.Movement.Manager.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
