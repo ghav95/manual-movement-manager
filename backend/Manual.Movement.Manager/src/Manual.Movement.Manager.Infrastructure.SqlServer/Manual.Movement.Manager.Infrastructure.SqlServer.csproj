@@ -60,7 +60,14 @@
     <Compile Include="Configuration\ManualHandlingConfiguration.cs" />
     <Compile Include="Configuration\ProductConfiguration.cs" />
     <Compile Include="Configuration\ProductCosifConfiguration.cs" />
+    <Compile Include="Migrations\202411240145158_InitialCreate.cs" />
+    <Compile Include="Migrations\202411240145158_InitialCreate.Designer.cs">
+      <DependentUpon>202411240145158_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ManualHandlingRepository.cs" />
+    <Compile Include="Repositories\ProductCosifRepository.cs" />
     <Compile Include="Repositories\ProductRespository.cs" />
     <Compile Include="SqlServerDbContext.cs" />
   </ItemGroup>
@@ -68,7 +75,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202411240145158_InitialCreate.resx">
+      <DependentUpon>202411240145158_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj">
       <Project>{1be1772b-6cba-4233-babe-4e5b1e679dd4}</Project>

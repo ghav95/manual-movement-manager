@@ -1,7 +1,6 @@
-﻿using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+﻿using Manual.Movement.Manager.Infrastructure.SqlServer;
+using System.Data.Entity;
+using System.Web.Http;
 
 namespace Manual.Movement.Manager.WebApi
 {
@@ -10,12 +9,15 @@ namespace Manual.Movement.Manager.WebApi
         protected void Application_Start()
         {
             UnityConfig.RegisterComponents();
-
-            //AreaRegistration.RegisterAllAreas();
+                        
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
+            
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDbContext, Manual.Movement.Manager.Infrastructure.SqlServer.Migrations.Configuration>());
+                        
+            using (var context = new SqlServerDbContext())
+            {
+                context.Database.Initialize(force: true);
+            }
         }
     }
 }

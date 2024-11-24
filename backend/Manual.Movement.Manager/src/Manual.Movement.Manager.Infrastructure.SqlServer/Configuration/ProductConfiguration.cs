@@ -13,6 +13,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(p => p.Id)
                 .HasColumnName("COD_PRODUTO")
+                .HasColumnType("char")
                 .HasMaxLength(4)
                 .IsRequired();
 
@@ -22,6 +23,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(p => p.Status)
                 .HasColumnName("STA_STATUS")
+                .HasColumnType("char")
                 .HasMaxLength(1); 
         }
     }

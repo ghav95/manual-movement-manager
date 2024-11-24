@@ -13,20 +13,24 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(pc => pc.ProductId)
                 .HasColumnName("COD_PRODUTO")
+                .HasColumnType("char")
                 .HasMaxLength(4)
                 .IsRequired();
 
             Property(pc => pc.CosifId)
                 .HasColumnName("COD_COSIF")
+                .HasColumnType("char")
                 .HasMaxLength(11)
                 .IsRequired();
 
             Property(pc => pc.ClassificationId)
                 .HasColumnName("CO_CLASSIFICACAO")
+                .HasColumnType("char")
                 .HasMaxLength(6);
 
             Property(pc => pc.Status)
                 .HasColumnName("STA_STATUS")
+                .HasColumnType("char")
                 .HasMaxLength(1);
         }
     }

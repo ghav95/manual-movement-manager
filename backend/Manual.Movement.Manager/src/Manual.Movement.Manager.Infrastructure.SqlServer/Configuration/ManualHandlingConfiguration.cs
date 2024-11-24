@@ -25,11 +25,13 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(mm => mm.ProductId)
                 .HasColumnName("COD_PRODUTO")
+                .HasColumnType("char")
                 .HasMaxLength(4)
                 .IsRequired();
 
             Property(mm => mm.CosifId)
                 .HasColumnName("COD_COSIF")
+                .HasColumnType("char")
                 .HasMaxLength(11)
                 .IsRequired();
 
