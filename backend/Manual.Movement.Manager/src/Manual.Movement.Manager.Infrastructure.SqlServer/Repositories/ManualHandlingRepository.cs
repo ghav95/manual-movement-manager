@@ -1,5 +1,7 @@
 ﻿using Manual.Movement.Manager.Domain.ManualHandling;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,7 +23,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Repositories
             string userId = "TESTE",
             CancellationToken cancellationToken = default)
         {
-            int launchNumber = await GetNextLaunchNumberAsync(month, year, cancellationToken)
+            var launchNumber = await GetNextLaunchNumberAsync(month, year, cancellationToken)
                 .ConfigureAwait(false);
 
             var manualHandling = new ManualHandling(
@@ -41,7 +43,14 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Repositories
                 .ConfigureAwait(false);
         }
 
-        private async Task<int> GetNextLaunchNumberAsync(int month, int year, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ManualHandling>> GetAllAsync(CancellationToken cancellationToken = default)
+        {
+            return await _context.ManualHandlings
+                .ToListAsync(cancellationToken)
+                .ConfigureAwait(false);
+        }
+
+        private async Task<long> GetNextLaunchNumberAsync(int month, int year, CancellationToken cancellationToken)
         {
             var sqlQuery = @"
                         SELECT ISNULL(
@@ -53,7 +62,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Repositories
 
             var nextLaunchNumber = await _context
                 .Database
-                .SqlQuery<int>(sqlQuery, month, year)
+                .SqlQuery<long>(sqlQuery, month, year)
                 .FirstAsync(cancellationToken)
                 .ConfigureAwait(false);
 

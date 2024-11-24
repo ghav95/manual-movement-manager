@@ -2,6 +2,5 @@
 {
     public class CreateManualMovementOutput
     {
-        public int Id { get; set; }
     }
 }

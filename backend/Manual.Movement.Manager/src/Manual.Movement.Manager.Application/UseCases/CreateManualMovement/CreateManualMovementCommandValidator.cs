@@ -10,13 +10,17 @@ namespace Manual.Movement.Manager.Application.UseCases.CreateManualMovement
                 .NotEmpty()
                 .WithMessage("Month cannot be null or empty.")
                 .MaximumLength(2)
-                .WithMessage("Month cannot be more than 2 characters.");
+                .WithMessage("Month cannot be more than 2 characters.")
+                .Must(BeAValidMonth)
+                .WithMessage("Month must be a number between 1 and 12.");
 
             RuleFor(x => x.Year)
                 .NotEmpty()
                 .WithMessage("Year cannot be null or empty.")
                 .Length(4)
-                .WithMessage("Year must be exactly 4 characters.");
+                .WithMessage("Year must be exactly 4 characters.")
+                .Must(BeANumeric)
+                .WithMessage("Year must be numeric.");
 
             RuleFor(x => x.ProductId)
                 .NotEmpty()
@@ -30,19 +34,27 @@ namespace Manual.Movement.Manager.Application.UseCases.CreateManualMovement
                 .Length(11)
                 .WithMessage("CosifId must be exactly 11 characters.");
 
-            RuleFor(x => x.Description)
-                .NotEmpty()
-                .WithMessage("Description cannot be null or empty.");
-
             RuleFor(x => x.Value)
                 .NotEmpty()
                 .WithMessage("Value cannot be null or empty.")
                 .MaximumLength(18)
-                .WithMessage("Value cannot exceed 18 characters.");
+                .WithMessage("Value cannot exceed 18 characters.")
+                .Must(BeANumeric)
+                .WithMessage("Value must be numeric.");
+        }
 
-            RuleFor(x => x.UserId)
-                .NotEmpty()
-                .WithMessage("UserId cannot be null or empty.");
+        private bool BeAValidMonth(string month)
+        {
+            if (int.TryParse(month, out var number))
+            {
+                return number >= 1 && number <= 12;
+            }
+            return false;
+        }
+
+        private bool BeANumeric(string value)
+        {
+            return decimal.TryParse(value, out _); 
         }
     }
 }
