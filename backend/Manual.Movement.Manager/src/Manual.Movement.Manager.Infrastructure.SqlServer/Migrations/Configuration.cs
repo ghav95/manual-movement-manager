@@ -37,12 +37,12 @@
             {
                 context.ProductCosifs.AddRange(new List<ProductCosif>
                 {
-                    new ProductCosif("P001", "C001", "CL001", "A"),
-                    new ProductCosif("P001", "C002", "CL001", "A"),
-                    new ProductCosif("P001", "C003", "CL001", "A"),
-                    new ProductCosif("P002", "C001", "CL002", "A"),
-                    new ProductCosif("P002", "C002", "CL002", "A"),
-                    new ProductCosif("P003", "C003", "CL003", "I"),
+                    new ProductCosif("P001", "C0000000001", "CL001", "A"),
+                    new ProductCosif("P001", "C0000000002", "CL001", "A"),
+                    new ProductCosif("P001", "C0000000003", "CL001", "A"),
+                    new ProductCosif("P002", "C0000000001", "CL002", "A"),
+                    new ProductCosif("P002", "C0000000002", "CL002", "A"),
+                    new ProductCosif("P003", "C0000000003", "CL003", "I"),
                 });
             }
 
@@ -51,11 +51,11 @@
             {
                 context.ManualHandlings.AddRange(new List<ManualHandling>
                 {
-                    new ManualHandling(1, 2024, 1, "P001", "C001", "1 Movement", DateTime.Now.AddSeconds(-60), "TESTE", 1000.50m),
-                    new ManualHandling(1, 2024, 2, "P001", "C002", "2 Movement", DateTime.Now.AddSeconds(0), "TESTE", 500.75m),
-                    new ManualHandling(1, 2024, 3, "P001", "C003", "3 Movement", DateTime.Now.AddSeconds(60), "TESTE", 500.75m),
-                    new ManualHandling(2, 2024, 1, "P003", "C003", "4 Movement", DateTime.Now, "TESTE", 1000.50m),
-                    new ManualHandling(3, 2024, 1, "P002", "C002", "5 Movement", DateTime.Now, "TESTE", 500.75m),
+                    new ManualHandling(1, 2024, 1, "P001", "C0000000001", "1 Movement", DateTime.Now.AddSeconds(-60), "TESTE", 1000.50m),
+                    new ManualHandling(1, 2024, 2, "P001", "C0000000002", "2 Movement", DateTime.Now.AddSeconds(0), "TESTE", 500.75m),
+                    new ManualHandling(1, 2024, 3, "P001", "C0000000003", "3 Movement", DateTime.Now.AddSeconds(60), "TESTE", 500.75m),
+                    new ManualHandling(2, 2024, 1, "P003", "C0000000003", "4 Movement", DateTime.Now, "TESTE", 1000.50m),
+                    new ManualHandling(3, 2024, 1, "P002", "C0000000002", "5 Movement", DateTime.Now, "TESTE", 500.75m),
                 });
             }
                         
