@@ -25,7 +25,6 @@ namespace Manual.Movement.Manager.WebApi
         private static void RegisterRepositories(IUnityContainer container)
         {
             container.RegisterType<IProductRepository, ProductRespository>(new HierarchicalLifetimeManager());
-            container.RegisterType<IProductCosifRepository, ProductCosifRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IManualHandlingRepository, ManualHandlingRepository>(new HierarchicalLifetimeManager());
         }
 

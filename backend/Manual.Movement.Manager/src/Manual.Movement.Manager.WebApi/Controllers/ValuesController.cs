@@ -17,7 +17,7 @@ namespace Manual.Movement.Manager.WebApi.Controllers
         // GET api/values
         public async Task<IEnumerable<Product>> Get()
         {
-            return await _productRepository.Get().ConfigureAwait(false);
+            return await _productRepository.GetAllAsync().ConfigureAwait(false);
         }
 
         // GET api/values/5

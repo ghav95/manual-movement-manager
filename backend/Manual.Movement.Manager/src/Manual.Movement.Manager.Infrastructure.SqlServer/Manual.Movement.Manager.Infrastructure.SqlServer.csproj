@@ -67,7 +67,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ManualHandlingRepository.cs" />
-    <Compile Include="Repositories\ProductCosifRepository.cs" />
     <Compile Include="Repositories\ProductRespository.cs" />
     <Compile Include="SqlServerDbContext.cs" />
   </ItemGroup>

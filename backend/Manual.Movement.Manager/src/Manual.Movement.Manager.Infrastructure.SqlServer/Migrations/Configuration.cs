@@ -51,9 +51,9 @@
             {
                 context.ManualHandlings.AddRange(new List<ManualHandling>
                 {
-                    new ManualHandling(1, 2024, 1, "P001", "C001", "1 Movement", DateTime.Now, "TESTE", 1000.50m),
-                    new ManualHandling(1, 2024, 2, "P001", "C002", "2 Movement", DateTime.Now, "TESTE", 500.75m),
-                    new ManualHandling(1, 2024, 3, "P001", "C003", "3 Movement", DateTime.Now, "TESTE", 500.75m),
+                    new ManualHandling(1, 2024, 1, "P001", "C001", "1 Movement", DateTime.Now.AddSeconds(-60), "TESTE", 1000.50m),
+                    new ManualHandling(1, 2024, 2, "P001", "C002", "2 Movement", DateTime.Now.AddSeconds(0), "TESTE", 500.75m),
+                    new ManualHandling(1, 2024, 3, "P001", "C003", "3 Movement", DateTime.Now.AddSeconds(60), "TESTE", 500.75m),
                     new ManualHandling(2, 2024, 1, "P003", "C003", "4 Movement", DateTime.Now, "TESTE", 1000.50m),
                     new ManualHandling(3, 2024, 1, "P002", "C002", "5 Movement", DateTime.Now, "TESTE", 500.75m),
                 });
