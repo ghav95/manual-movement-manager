@@ -56,7 +56,7 @@
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementCommand.cs" />
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementCommandValidator.cs" />
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementOutput.cs" />
-    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementUseCase.cs" />
+    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementHandler.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductCommand.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductOutput.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductHandler.cs" />
