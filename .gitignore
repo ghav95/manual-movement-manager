@@ -90,3 +90,4 @@ TestResults/
 
 # Swagger (optional)
 *.xml  # Generated API documentation XML (include this only if generated in runtime)
+docker commands.txt

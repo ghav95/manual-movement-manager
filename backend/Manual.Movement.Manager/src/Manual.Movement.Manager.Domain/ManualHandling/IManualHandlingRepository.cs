@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Manual.Movement.Manager.Domain.ManualHandling
@@ -14,5 +15,7 @@ namespace Manual.Movement.Manager.Domain.ManualHandling
             decimal value, 
             string userId,
             CancellationToken cancellationToken = default);
+
+        Task<IEnumerable<ManualHandling>> GetAllAsync(CancellationToken cancellationToken = default);
     }
 }
