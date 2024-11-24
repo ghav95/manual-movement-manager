@@ -37,7 +37,7 @@ namespace Manual.Movement.Manager.WebApi.Controllers
 
             if (output != null) return Ok(output.MapToResponse());
 
-            return Content(HttpStatusCode.BadRequest, "Failed to retrieve products.");
+            return Content(HttpStatusCode.InternalServerError, "Failed to retrieve products.");
         }
     }
 }
