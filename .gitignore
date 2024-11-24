@@ -1,0 +1,93 @@
+# Visual Studio Specific
+.vs/
+.vscode/
+*.user
+*.suo
+*.vcxproj.user
+*.csproj.user
+*.dbmdl
+*.log
+
+# Build Results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.idb
+*.lib
+*.log
+*.vsix
+*.nupkg
+*.map
+*.tlog
+
+# Packages
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# NuGet
+!packages/build/
+!packages/repositories.config
+*.nuget.props
+*.nuget.targets
+
+# Azure DevOps
+.msbuild.log
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# IIS/Local Server Config
+*.vspscc
+.localhistory/
+
+# Entity Framework
+*.edmx.diagram
+*.edmx.sql
+*.edmx
+
+# Rider
+.idea/
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.TMP
+*.TEMP
+
+# Test Results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Swagger (optional)
+*.xml  # Generated API documentation XML (include this only if generated in runtime)
+docker commands.txt
