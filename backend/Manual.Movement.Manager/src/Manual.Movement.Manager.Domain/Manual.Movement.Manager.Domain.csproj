@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManualHandling\IManualHandlingRepository.cs" />
+    <Compile Include="ManualHandling\ManualHandling.cs" />
+    <Compile Include="ProductCosif\IProductCosifRepository.cs" />
+    <Compile Include="ProductCosif\ProductCosif.cs" />
+    <Compile Include="Product\IProductRepository.cs" />
+    <Compile Include="Product\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,14 +10,14 @@ namespace Manual.Movement.Manager.Domain.Product
     {
         public Product(
             string description, 
-            char status)
+            string status)
         {
             Description = description ?? throw new ArgumentNullException(nameof(description));
-            Status = status;
+            Status = status ?? throw new ArgumentNullException(nameof(status));
         }
 
         public string Id { get; }
         public string Description { get; private set; }
-        public char Status { get; private set; }
+        public string Status { get; private set; }
     }
 }
