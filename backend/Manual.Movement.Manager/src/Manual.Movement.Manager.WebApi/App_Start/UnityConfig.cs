@@ -5,6 +5,7 @@ using Manual.Movement.Manager.Infrastructure.SqlServer;
 using Manual.Movement.Manager.Infrastructure.SqlServer.Repositories;
 using MediatR;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
@@ -17,9 +18,12 @@ namespace Manual.Movement.Manager.WebApi
 {
     public static class UnityConfig
     {
-        private static readonly Assembly[] Assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        private static ITypeLifetimeManager DefaultLifetimeManager => new TransientLifetimeManager();
-        private static ITypeLifetimeManager ScopedLifetimeManager => new HierarchicalLifetimeManager();
+        private static ITypeLifetimeManager ScopedLifetime => new HierarchicalLifetimeManager();
+        private static ITypeLifetimeManager TransientLifetime => new TransientLifetimeManager();
+
+        private static readonly Assembly[] Assemblies = AppDomain.CurrentDomain.GetAssemblies()
+            .Where(a => !a.IsDynamic && !string.IsNullOrWhiteSpace(a.Location))
+            .ToArray();
 
         public static void RegisterComponents()
         {
@@ -36,36 +40,36 @@ namespace Manual.Movement.Manager.WebApi
 
         private static void RegisterRepositories(IUnityContainer container)
         {
-            container.RegisterType<IProductRepository, ProductRespository>(ScopedLifetimeManager);
-            container.RegisterType<IManualHandlingRepository, ManualHandlingRepository>(ScopedLifetimeManager);
+            container.RegisterType<IProductRepository, ProductRespository>(ScopedLifetime);
+            container.RegisterType<IManualHandlingRepository, ManualHandlingRepository>(ScopedLifetime);
         }
 
         private static void RegisterDbContext(IUnityContainer container)
         {
-            container.RegisterType<SqlServerDbContext>(ScopedLifetimeManager);
+            container.RegisterType<SqlServerDbContext>(ScopedLifetime);
         }
 
         private static void RegisterMediatR(IUnityContainer container)
         {
-            container.RegisterType<IMediator, Mediator>(ScopedLifetimeManager);
+            container.RegisterType<IMediator, Mediator>(ScopedLifetime);
             container.RegisterInstance<ServiceFactory>(type => container.Resolve(type));
 
             foreach (var type in AllClasses.FromAssemblies(Assemblies)
                 .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>))))
             {
                 var @interface = type.GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>));
-                container.RegisterType(@interface, type, DefaultLifetimeManager);
+                container.RegisterType(@interface, type, TransientLifetime);
             }
         }
 
         private static void RegisterFluentValidationValidators(IUnityContainer container)
         {
-            //foreach (var type in Assemblies.SelectMany(a => a.GetTypes())
-            //    .Where(t => t.BaseType != null && t.BaseType.IsGenericType && t.BaseType.GetGenericTypeDefinition() == typeof(AbstractValidator<>)))
-            //{
-            //    var validatorInterface = type.BaseType;
-            //    container.RegisterType(validatorInterface, type, DefaultLifetimeManager);
-            //}
+            foreach (var type in Assemblies.SelectMany(SafeGetTypes)
+                .Where(t => t.BaseType != null && t.BaseType.IsGenericType && t.BaseType.GetGenericTypeDefinition() == typeof(AbstractValidator<>)))
+            {
+                var validatorInterface = type.BaseType;
+                container.RegisterType(validatorInterface, type, TransientLifetime);
+            }
         }
 
         private static void RegisterPipelineBehaviors(IUnityContainer container)
@@ -74,8 +78,21 @@ namespace Manual.Movement.Manager.WebApi
                 .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IPipelineBehavior<,>))))
             {
                 var behaviorInterface = type.GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IPipelineBehavior<,>));
-                container.RegisterType(behaviorInterface, type, DefaultLifetimeManager);
+                container.RegisterType(behaviorInterface, type, TransientLifetime);
+            }
+        }
+
+        private static IEnumerable<Type> SafeGetTypes(Assembly assembly)
+        {
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                return ex.Types.Where(t => t != null);
             }
         }
     }
+
 }
