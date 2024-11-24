@@ -1,6 +1,7 @@
 ﻿using Manual.Movement.Manager.Application.UseCases.CreateManualMovement;
 using Manual.Movement.Manager.Application.UseCases.GetAllManualMovement;
 using Manual.Movement.Manager.WebApi.Transport.CreateManualMovement;
+using Manual.Movement.Manager.WebApi.Transport.GetAllManualMovement;
 using MediatR;
 using System;
 using System.Net;
@@ -45,7 +46,8 @@ namespace Manual.Movement.Manager.WebApi.Controllers
                 .ConfigureAwait(false);
                         
             if (output != null) return Ok();
-            return InternalServerError();
+
+            return Content(HttpStatusCode.InternalServerError, "Failed to put manual movements.");
         }
 
         /// <summary>
@@ -62,9 +64,9 @@ namespace Manual.Movement.Manager.WebApi.Controllers
             var output = await _mediator.Send(command,cancellationToken)
                 .ConfigureAwait(false);
 
-            if (output != null) return Ok(output);
+            if (output != null) return Ok(output.MapToResponse());
 
-            return Content(HttpStatusCode.InternalServerError, "Failed to retrieve manual movements.");
+            return Content(HttpStatusCode.InternalServerError, "Failed to get manual movements.");
         }
     }
 }

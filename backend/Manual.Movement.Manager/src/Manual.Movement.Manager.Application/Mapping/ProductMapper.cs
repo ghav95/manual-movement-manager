@@ -19,8 +19,7 @@ namespace Manual.Movement.Manager.Application.Mapping
                 product.Id,
                 product.Description,
                 product.Status,
-                product.ProductCosifs.Select(ToDto).ToList()
-                );
+                product.ProductCosifs.Select(ToDto).ToList());
         }
 
         public static ProductCosifDto ToDto(this ProductCosif productCosif)

@@ -176,6 +176,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transport\CreateManualMovement\CreateManualMovementRequest.cs" />
+    <Compile Include="Transport\GetAllManualMovement\GetAllManualMovementResponse.cs" />
     <Compile Include="Transport\GetAllProduct\GetAllProductResponse.cs" />
   </ItemGroup>
   <ItemGroup>

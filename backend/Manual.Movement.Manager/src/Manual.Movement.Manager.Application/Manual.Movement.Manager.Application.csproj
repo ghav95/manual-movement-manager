@@ -48,8 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ManualHandlingDto.cs" />
     <Compile Include="Dto\ProductCosifDto.cs" />
     <Compile Include="Dto\ProductDto.cs" />
+    <Compile Include="Mapping\ManualHandlingMapper.cs" />
     <Compile Include="Mapping\ProductMapper.cs" />
     <Compile Include="Pipeline\Behaviors\ValidationBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +59,9 @@
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementCommandValidator.cs" />
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementOutput.cs" />
     <Compile Include="UseCases\CreateManualMovement\CreateManualMovementHandler.cs" />
+    <Compile Include="UseCases\GetAllManualMovement\GetAllManualMovementCommand.cs" />
+    <Compile Include="UseCases\GetAllManualMovement\GetAllManualMovementHandler.cs" />
+    <Compile Include="UseCases\GetAllManualMovement\GetAllManualMovementOutput.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductCommand.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductOutput.cs" />
     <Compile Include="UseCases\GetAllProduct\GetAllProductHandler.cs" />
