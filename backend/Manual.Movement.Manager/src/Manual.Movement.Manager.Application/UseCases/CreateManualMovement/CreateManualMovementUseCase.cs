@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using MediatR;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Manual.Movement.Manager.Application.UseCases.CreateManualMovement
 {
-    internal class CreateManualMovementUseCase
+    public class CreateManualMovementUseCase : IRequestHandler<CreateManualMovementCommand, CreateManualMovementOutput>
     {
+        public Task<CreateManualMovementOutput> Handle(CreateManualMovementCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
