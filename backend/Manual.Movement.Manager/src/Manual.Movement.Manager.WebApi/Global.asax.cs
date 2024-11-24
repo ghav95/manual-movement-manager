@@ -13,14 +13,14 @@ namespace Manual.Movement.Manager.WebApi
                         
             GlobalConfiguration.Configure(WebApiConfig.Register);
             
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDbContext, Manual.Movement.Manager.Infrastructure.SqlServer.Migrations.Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SqlServerDbContext, Infrastructure.SqlServer.Migrations.Configuration>());
                         
             using (var context = new SqlServerDbContext())
             {
                 context.Database.Initialize(force: true);
             }
 
-            var configuration = new Manual.Movement.Manager.Infrastructure.SqlServer.Migrations.Configuration();
+            var configuration = new Infrastructure.SqlServer.Migrations.Configuration();
             var migrator = new DbMigrator(configuration);
             migrator.Update();
                         
