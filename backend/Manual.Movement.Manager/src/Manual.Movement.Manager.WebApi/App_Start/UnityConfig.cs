@@ -1,4 +1,6 @@
+using Manual.Movement.Manager.Domain.ManualHandling;
 using Manual.Movement.Manager.Domain.Product;
+using Manual.Movement.Manager.Domain.ProductCosif;
 using Manual.Movement.Manager.Infrastructure.SqlServer;
 using Manual.Movement.Manager.Infrastructure.SqlServer.Repositories;
 using System.Web.Http;
@@ -23,6 +25,8 @@ namespace Manual.Movement.Manager.WebApi
         private static void RegisterRepositories(IUnityContainer container)
         {
             container.RegisterType<IProductRepository, ProductRespository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProductCosifRepository, ProductCosifRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IManualHandlingRepository, ManualHandlingRepository>(new HierarchicalLifetimeManager());
         }
 
         private static void RegisterDbContext(IUnityContainer container)
