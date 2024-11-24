@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace Manual.Movement.Manager.Application.UseCases.GetAllProduct
 {
-    internal class GetAllProductCommand
+    public class GetAllProductCommand : IRequest<GetAllProductOutput>
     {
     }
 }

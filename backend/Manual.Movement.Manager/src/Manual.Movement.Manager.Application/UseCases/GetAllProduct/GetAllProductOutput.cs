@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Manual.Movement.Manager.Application.Dto;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Manual.Movement.Manager.Application.UseCases.GetAllProduct
 {
-    internal class GetAllProductOutput
+    public class GetAllProductOutput
     {
+        public GetAllProductOutput(IEnumerable<ProductDto> productDtos)
+        {
+            ProductDtos = productDtos;
+        }
+
+        public IEnumerable<ProductDto> ProductDtos { get; set; }
     }
 }

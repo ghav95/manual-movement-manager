@@ -31,7 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\FluentValidation.8.6.3\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="MediatR, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MediatR.5.1.0\lib\net45\MediatR.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +48,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\ProductCosifDto.cs" />
+    <Compile Include="Dto\ProductDto.cs" />
+    <Compile Include="Mapping\ProductMapper.cs" />
+    <Compile Include="Pipeline\Behaviors\ValidationBehavior.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementCommand.cs" />
+    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementCommandValidator.cs" />
+    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementOutput.cs" />
+    <Compile Include="UseCases\CreateManualMovement\CreateManualMovementUseCase.cs" />
+    <Compile Include="UseCases\GetAllProduct\GetAllProductCommand.cs" />
+    <Compile Include="UseCases\GetAllProduct\GetAllProductOutput.cs" />
+    <Compile Include="UseCases\GetAllProduct\GetAllProductHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\tests\Manual.Movement.Manager.IntegrationTests\Manual.Movement.Manager.IntegrationTests.csproj">
+      <Project>{d7c9315e-7739-4914-9169-d5b591159d05}</Project>
+      <Name>Manual.Movement.Manager.IntegrationTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj">
+      <Project>{1be1772b-6cba-4233-babe-4e5b1e679dd4}</Project>
+      <Name>Manual.Movement.Manager.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
