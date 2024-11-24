@@ -1,4 +1,5 @@
 using FluentValidation;
+using Manual.Movement.Manager.Application.Pipeline.Behaviors;
 using Manual.Movement.Manager.Domain.ManualHandling;
 using Manual.Movement.Manager.Domain.Product;
 using Manual.Movement.Manager.Infrastructure.SqlServer;
@@ -31,9 +32,9 @@ namespace Manual.Movement.Manager.WebApi
 
             RegisterRepositories(container);
             RegisterDbContext(container);
-            RegisterMediatR(container);
-            RegisterFluentValidationValidators(container);
             RegisterPipelineBehaviors(container);
+            RegisterFluentValidationValidators(container);
+            RegisterMediatR(container);
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
@@ -63,23 +64,20 @@ namespace Manual.Movement.Manager.WebApi
         }
 
         private static void RegisterFluentValidationValidators(IUnityContainer container)
-        {
+        {            
             foreach (var type in Assemblies.SelectMany(SafeGetTypes)
                 .Where(t => t.BaseType != null && t.BaseType.IsGenericType && t.BaseType.GetGenericTypeDefinition() == typeof(AbstractValidator<>)))
             {
-                var validatorInterface = type.BaseType;
+                var requestType = type.BaseType.GetGenericArguments()[0]; // Get TRequest
+                var validatorInterface = typeof(IValidator<>).MakeGenericType(requestType);
+
                 container.RegisterType(validatorInterface, type, TransientLifetime);
             }
         }
 
         private static void RegisterPipelineBehaviors(IUnityContainer container)
         {
-            foreach (var type in AllClasses.FromAssemblies(Assemblies)
-                .Where(t => t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IPipelineBehavior<,>))))
-            {
-                var behaviorInterface = type.GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IPipelineBehavior<,>));
-                container.RegisterType(behaviorInterface, type, TransientLifetime);
-            }
+            container.RegisterType(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>), TransientLifetime);
         }
 
         private static IEnumerable<Type> SafeGetTypes(Assembly assembly)
