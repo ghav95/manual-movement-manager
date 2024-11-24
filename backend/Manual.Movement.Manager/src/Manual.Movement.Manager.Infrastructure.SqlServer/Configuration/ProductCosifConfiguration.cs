@@ -24,7 +24,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
                 .IsRequired();
 
             Property(pc => pc.ClassificationId)
-                .HasColumnName("CO_CLASSIFICACAO")
+                .HasColumnName("COD_CLASSIFICACAO")
                 .HasColumnType("char")
                 .HasMaxLength(6);
 
@@ -32,6 +32,11 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
                 .HasColumnName("STA_STATUS")
                 .HasColumnType("char")
                 .HasMaxLength(1);
+
+            HasRequired(pc => pc.Product)
+              .WithMany(p => p.ProductCosifs) 
+              .HasForeignKey(pc => pc.ProductId)
+              .WillCascadeOnDelete(false);
         }
     }
 }

@@ -21,6 +21,8 @@ namespace Manual.Movement.Manager.Domain.ProductCosif
         public string ProductId { get; private set; }
         public string CosifId { get; private set; } 
         public string ClassificationId { get; private set; }
-        public string Status { get; private set; } 
+        public string Status { get; private set; }
+
+        public virtual Product.Product Product { get; private set; }
     }
 }

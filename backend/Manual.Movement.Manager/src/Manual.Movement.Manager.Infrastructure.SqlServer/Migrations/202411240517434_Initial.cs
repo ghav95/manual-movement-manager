@@ -21,7 +21,9 @@
                         COD_USUARIO = c.String(nullable: false, maxLength: 15, unicode: false),
                         VAL_VALOR = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
-                .PrimaryKey(t => new { t.DAT_MES, t.DAT_ANO, t.NUM_LANCAMENTO, t.COD_PRODUTO, t.COD_COSIF });
+                .PrimaryKey(t => new { t.DAT_MES, t.DAT_ANO, t.NUM_LANCAMENTO, t.COD_PRODUTO, t.COD_COSIF })
+                .ForeignKey("dbo.PRODUTO_COSIF", t => new { t.COD_PRODUTO, t.COD_COSIF })
+                .Index(t => new { t.COD_PRODUTO, t.COD_COSIF });
             
             CreateTable(
                 "dbo.PRODUTO_COSIF",
@@ -29,10 +31,12 @@
                     {
                         COD_PRODUTO = c.String(nullable: false, maxLength: 4, fixedLength: true, unicode: false),
                         COD_COSIF = c.String(nullable: false, maxLength: 11, fixedLength: true, unicode: false),
-                        CO_CLASSIFICACAO = c.String(maxLength: 6, fixedLength: true, unicode: false),
+                        COD_CLASSIFICACAO = c.String(maxLength: 6, fixedLength: true, unicode: false),
                         STA_STATUS = c.String(maxLength: 1, fixedLength: true, unicode: false),
                     })
-                .PrimaryKey(t => new { t.COD_PRODUTO, t.COD_COSIF });
+                .PrimaryKey(t => new { t.COD_PRODUTO, t.COD_COSIF })
+                .ForeignKey("dbo.PRODUTO", t => t.COD_PRODUTO)
+                .Index(t => t.COD_PRODUTO);
             
             CreateTable(
                 "dbo.PRODUTO",
@@ -48,6 +52,10 @@
         
         public override void Down()
         {
+            DropForeignKey("dbo.MOVIMENTO_MANUAL", new[] { "COD_PRODUTO", "COD_COSIF" }, "dbo.PRODUTO_COSIF");
+            DropForeignKey("dbo.PRODUTO_COSIF", "COD_PRODUTO", "dbo.PRODUTO");
+            DropIndex("dbo.PRODUTO_COSIF", new[] { "COD_PRODUTO" });
+            DropIndex("dbo.MOVIMENTO_MANUAL", new[] { "COD_PRODUTO", "COD_COSIF" });
             DropTable("dbo.PRODUTO");
             DropTable("dbo.PRODUTO_COSIF");
             DropTable("dbo.MOVIMENTO_MANUAL");

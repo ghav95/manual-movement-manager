@@ -13,7 +13,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202411240435289_Initial"; }
+            get { return "202411240517434_Initial"; }
         }
         
         string IMigrationMetadata.Source

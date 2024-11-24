@@ -1,4 +1,5 @@
 ﻿using Manual.Movement.Manager.Domain.ManualHandling;
+using Manual.Movement.Manager.Domain.ProductCosif;
 using System.Data.Entity.ModelConfiguration;
 
 namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
@@ -55,6 +56,11 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
                 .HasColumnName("VAL_VALOR")
                 .HasPrecision(18, 2)
                 .IsRequired();
+
+            HasRequired(mm => mm.ProductCosif)
+                .WithMany() 
+                .HasForeignKey(mm => new { mm.ProductId, mm.CosifId })
+                .WillCascadeOnDelete(false);
         }
     }
 }

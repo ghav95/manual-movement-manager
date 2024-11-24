@@ -23,5 +23,7 @@ namespace Manual.Movement.Manager.Domain.Product
         public string Id { get; private set; }
         public string Description { get; private set; }
         public string Status { get; private set; }
+
+        public virtual ICollection<ProductCosif.ProductCosif> ProductCosifs { get; private set; }
     }
 }
