@@ -7,13 +7,13 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202411240145158_InitialCreate"; }
+            get { return "202411240435289_Initial"; }
         }
         
         string IMigrationMetadata.Source

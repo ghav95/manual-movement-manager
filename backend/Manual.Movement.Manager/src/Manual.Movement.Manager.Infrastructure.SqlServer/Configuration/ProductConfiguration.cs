@@ -19,6 +19,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(p => p.Description)
                 .HasColumnName("DES_PRODUTO")
+                .HasColumnType("varchar")
                 .HasMaxLength(30);
 
             Property(p => p.Status)

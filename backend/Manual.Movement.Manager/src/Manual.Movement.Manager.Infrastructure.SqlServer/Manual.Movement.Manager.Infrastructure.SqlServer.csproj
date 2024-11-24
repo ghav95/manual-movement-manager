@@ -60,9 +60,9 @@
     <Compile Include="Configuration\ManualHandlingConfiguration.cs" />
     <Compile Include="Configuration\ProductConfiguration.cs" />
     <Compile Include="Configuration\ProductCosifConfiguration.cs" />
-    <Compile Include="Migrations\202411240145158_InitialCreate.cs" />
-    <Compile Include="Migrations\202411240145158_InitialCreate.Designer.cs">
-      <DependentUpon>202411240145158_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202411240435289_Initial.cs" />
+    <Compile Include="Migrations\202411240435289_Initial.Designer.cs">
+      <DependentUpon>202411240435289_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,15 +76,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411240145158_InitialCreate.resx">
-      <DependentUpon>202411240145158_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj">
       <Project>{1be1772b-6cba-4233-babe-4e5b1e679dd4}</Project>
       <Name>Manual.Movement.Manager.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202411240435289_Initial.resx">
+      <DependentUpon>202411240435289_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

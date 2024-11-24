@@ -1,5 +1,6 @@
 ﻿using Manual.Movement.Manager.Infrastructure.SqlServer;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Web.Http;
 
 namespace Manual.Movement.Manager.WebApi
@@ -17,6 +18,15 @@ namespace Manual.Movement.Manager.WebApi
             using (var context = new SqlServerDbContext())
             {
                 context.Database.Initialize(force: true);
+            }
+
+            var configuration = new Manual.Movement.Manager.Infrastructure.SqlServer.Migrations.Configuration();
+            var migrator = new DbMigrator(configuration);
+            migrator.Update();
+                        
+            using (var context = new SqlServerDbContext())
+            {
+                configuration.RunSeed(context);
             }
         }
     }

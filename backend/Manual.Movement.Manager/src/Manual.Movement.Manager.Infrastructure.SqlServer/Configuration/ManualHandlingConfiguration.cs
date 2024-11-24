@@ -37,6 +37,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(mm => mm.Description)
                 .HasColumnName("DES_DESCRICAO")
+                .HasColumnType("varchar")
                 .HasMaxLength(50)
                 .IsRequired();
 
@@ -46,6 +47,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Configuration
 
             Property(mm => mm.UserId)
                 .HasColumnName("COD_USUARIO")
+                .HasColumnType("varchar")
                 .HasMaxLength(15)
                 .IsRequired();
 
