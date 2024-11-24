@@ -27,9 +27,9 @@
             {
                 context.Products.AddRange(new List<Product>
                 {
-                    new Product("P001", "Laptop", "A"),
-                    new Product("P002", "Mouse", "A"),
-                    new Product("P003", "Keyboard", "I"),
+                    new Product("P001", "PETR3", "A"),
+                    new Product("P002", "PETR4", "B"),
+                    new Product("P003", "IRBR3", "C"),
                 });
             }
                         
@@ -38,6 +38,9 @@
                 context.ProductCosifs.AddRange(new List<ProductCosif>
                 {
                     new ProductCosif("P001", "C001", "CL001", "A"),
+                    new ProductCosif("P001", "C002", "CL001", "A"),
+                    new ProductCosif("P001", "C003", "CL001", "A"),
+                    new ProductCosif("P002", "C001", "CL002", "A"),
                     new ProductCosif("P002", "C002", "CL002", "A"),
                     new ProductCosif("P003", "C003", "CL003", "I"),
                 });
@@ -48,8 +51,11 @@
             {
                 context.ManualHandlings.AddRange(new List<ManualHandling>
                 {
-                    new ManualHandling(1, 2024, 1, "P001", "C001", "First Movement", DateTime.Now, "admin", 1000.50m),
-                    new ManualHandling(2, 2024, 2, "P002", "C002", "Second Movement", DateTime.Now, "admin", 500.75m),
+                    new ManualHandling(1, 2024, 1, "P001", "C001", "1 Movement", DateTime.Now, "TESTE", 1000.50m),
+                    new ManualHandling(1, 2024, 2, "P001", "C002", "2 Movement", DateTime.Now, "TESTE", 500.75m),
+                    new ManualHandling(1, 2024, 3, "P001", "C003", "3 Movement", DateTime.Now, "TESTE", 500.75m),
+                    new ManualHandling(2, 2024, 1, "P003", "C003", "4 Movement", DateTime.Now, "TESTE", 1000.50m),
+                    new ManualHandling(3, 2024, 1, "P002", "C002", "5 Movement", DateTime.Now, "TESTE", 500.75m),
                 });
             }
                         
