@@ -1,4 +1,4 @@
-# Manual Movement Manjar
+# Manual Movement Manager
 
 ## 🎯 Objective
 
