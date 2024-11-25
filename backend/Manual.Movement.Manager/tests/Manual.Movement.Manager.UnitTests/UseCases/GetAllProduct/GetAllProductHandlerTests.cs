@@ -3,8 +3,6 @@ using Manual.Movement.Manager.Domain.Product;
 using Manual.Movement.Manager.Domain.ProductCosif;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Ploeh.AutoFixture;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -59,18 +57,15 @@ namespace Manual.Movement.Manager.UnitTests.UseCases.GetAllProduct
             var command = new GetAllProductCommand();
 
             // Act
-            var result = await _handler.Handle(command, CancellationToken.None);
+            var result = await _handler.Handle(command, CancellationToken.None)
+                .ConfigureAwait(false);
 
             // Assert
             _productRepositoryMock.Verify(repo => repo.GetAllAsync(It.IsAny<CancellationToken>()), Times.Once);
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(GetAllProductOutput));
-            Assert.AreEqual(mockProductData.Count, result.ProductDtos.Count());
-
-            // Validate the navigation properties
-
-            var xpto = result.ProductDtos.ElementAt(0);
+            Assert.AreEqual(mockProductData.Count, result.ProductDtos.Count());                        
             Assert.AreEqual(2, result.ProductDtos.ElementAt(0).ProductCosifs.Count());
             Assert.AreEqual(1, result.ProductDtos.ElementAt(1).ProductCosifs.Count());
         }
@@ -86,7 +81,8 @@ namespace Manual.Movement.Manager.UnitTests.UseCases.GetAllProduct
             var command = new GetAllProductCommand();
 
             // Act
-            var result = await _handler.Handle(command, CancellationToken.None);
+            var result = await _handler.Handle(command, CancellationToken.None)
+                .ConfigureAwait(false);
 
             // Assert
             _productRepositoryMock.Verify(repo => repo.GetAllAsync(It.IsAny<CancellationToken>()), Times.Once);
