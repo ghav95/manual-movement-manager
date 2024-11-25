@@ -70,10 +70,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\tests\Manual.Movement.Manager.IntegrationTests\Manual.Movement.Manager.IntegrationTests.csproj">
-      <Project>{d7c9315e-7739-4914-9169-d5b591159d05}</Project>
-      <Name>Manual.Movement.Manager.IntegrationTests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Manual.Movement.Manager.Domain\Manual.Movement.Manager.Domain.csproj">
       <Project>{1be1772b-6cba-4233-babe-4e5b1e679dd4}</Project>
       <Name>Manual.Movement.Manager.Domain</Name>
