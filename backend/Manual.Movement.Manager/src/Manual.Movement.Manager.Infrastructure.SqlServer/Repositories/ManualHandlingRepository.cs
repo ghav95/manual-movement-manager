@@ -20,7 +20,7 @@ namespace Manual.Movement.Manager.Infrastructure.SqlServer.Repositories
             string cosifId,
             string description,
             decimal value,
-            string userId = "TESTE",
+            string userId,
             CancellationToken cancellationToken = default)
         {
             var launchNumber = await GetNextLaunchNumberAsync(month, year, cancellationToken)
