@@ -181,10 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -197,6 +193,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
