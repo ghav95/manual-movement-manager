@@ -1,0 +1,113 @@
+/* Form container aligns everything consistently */
+.form-container {
+  display: flex;
+  flex-direction: column; /* Stack elements (header, form) */
+  align-items: flex-start; /* Align everything to the left */
+  padding: 16px; /* Ensure consistent padding */
+  max-width: 1200px;
+  margin: 24px auto; /* Add space at the top */
+  box-sizing: border-box;
+}
+
+/* Header styling aligns with the form fields */
+.header-title {
+  font-size: 24px; /* Adjust header font size */
+  font-weight: bold; /* Make the header bold */
+  color: #333; /* Dark color for the header */
+  margin-bottom: 16px; /* Add spacing below the header */
+  width: 100%; /* Align with the form width */
+}
+
+/* Ensure form rows and fields are aligned */
+.form {
+  display: flex;
+  flex-direction: column; /* Stack form rows */
+  gap: 16px; /* Add spacing between rows */
+  width: 100%; /* Match the container width */
+}
+
+.form-row {
+  display: flex;
+  gap: 16px; /* Add spacing between fields */
+  width: 100%; /* Row takes full width */
+}
+
+.form-row-unique {
+  display: flex;
+  gap: 16px;
+  width: 50%;
+}
+
+.form-field {
+  flex: 1; /* Fields take equal space in a row */
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 8px; /* Add spacing between buttons */
+  width: 50%;
+  margin-top: 0px; /* Add space above the buttons */
+}
+
+/* Button styling */
+.form-button {
+  font-size: 18px; /* Large text for readability */
+  height: 30px; /* Standard height */
+  width: 90px; /* Standard width */
+  background-color: #007bff !important; /* Blue background */
+  color: white !important; /* White text */
+  border-radius: 2px; /* Reduce rounding (closer to straight edges) */
+  box-shadow: none; /* Optional: Remove Material shadow effect */
+}
+
+.form-button:hover {
+  background-color: #0056b3 !important; /* Darker blue on hover */
+}
+
+.mat-form-field-disabled {
+  opacity: 0.5; /* Make disabled fields look visually different */
+  pointer-events: none; /* Prevent clicking on disabled fields */
+}
+
+.success-snackbar.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    background: green;
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .mat-mdc-snack-bar-label.mdc-snackbar__label {
+    color: white;
+    font-weight: 500;
+    white-space: pre-wrap
+  }
+}
+
+.error-snackbar.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    background: red;
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .mat-mdc-snack-bar-label.mdc-snackbar__label {
+    color: white;
+    font-weight: 500;
+    white-space: pre-wrap
+  }
+}
+
+disabled-button .mat-raised-button {
+  background-color: #e0e0e0 !important; /* Light grey background */
+  color: #9e9e9e !important; /* Faded text color */
+  box-shadow: none !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}

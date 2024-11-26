@@ -1,0 +1,102 @@
+<div class="form-container">
+  <!-- Header -->
+  <h1 class="header-title">Movimentos Manuais</h1>
+  <form [formGroup]="movForm" class="form">
+    <div class="form-row">
+      <!-- Mês Input -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Mês</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="mes"
+          min="1"
+          max="12"
+          placeholder="Ex: 01"
+        />
+        <mat-error *ngIf="mes?.hasError('required')">Mês é obrigatório</mat-error>
+        <mat-error *ngIf="mes?.hasError('min')">O mês deve ser no mínimo 1</mat-error>
+        <mat-error *ngIf="mes?.hasError('max')">O mês deve ser no máximo 12</mat-error>
+      </mat-form-field>
+
+      <!-- Ano Input -->
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Ano</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="ano"
+          min="1900"
+          max="2100"
+          placeholder="Ex: 2024"
+        />
+        <mat-error *ngIf="ano?.hasError('required')">Ano é obrigatório</mat-error>
+        <mat-error *ngIf="ano?.hasError('min')">O ano deve ser no mínimo 1900</mat-error>
+        <mat-error *ngIf="ano?.hasError('max')">O ano deve ser no máximo 2100</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Row 2: Two ComboBoxes -->
+    <div class="form-row">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Produto</mat-label>
+        <mat-select
+          formControlName="produto"
+          (selectionChange)="onProductChange($event.value)"
+        >
+          <mat-option *ngFor="let product of products" [value]="product.Id">
+            {{ product.Description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Cosif</mat-label>
+        <mat-select formControlName="cosif">
+          <mat-option *ngFor="let cosif of filteredCosifs" [value]="cosif.CosifId">
+            {{ cosif.CosifId }} - ({{ cosif.ClassificationId }})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Row 3: One Input -->
+    <div class="form-row-unique">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Valor</mat-label>
+        <input
+          matInput
+          formControlName="valor"
+          mask="separator.2"
+          prefix="R$"
+          thousandSeparator="."
+          decimalMarker=","
+        />
+      </mat-form-field>
+    </div>
+
+    <!-- Row 4: One TextArea -->
+    <div class="form-row-unique">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="descricao"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+      <button mat-raised-button color="primary" class="form-button" (click)="clear()">Limpar</button>
+      <button mat-raised-button color="primary" class="form-button" (click)="new()">Novo</button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="form-button"
+        (click)="send()"
+        [disabled]="movForm.invalid || movForm.disabled"
+      >
+        Incluir
+      </button>
+    </div>
+
+  </form>
+</div>
