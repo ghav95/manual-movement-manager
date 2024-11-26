@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    build: ./sqlserver/Db
+    ports:
+        - 1433:1433
+    container_name: sqlserver-container
+    
+  frontend:
+    build:
+      context: ./frontend/movimentos-manuais
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    container_name: angular-frontend

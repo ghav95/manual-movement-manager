@@ -1,0 +1,58 @@
+<div class="grid-container">
+  <mat-table [dataSource]="data" class="mat-elevation-z8">
+
+     <ng-container matColumnDef="mes">
+    <mat-header-cell *matHeaderCellDef>
+      <div class="header-with-button">
+        <button
+          mat-icon-button
+          color="primary"
+          class="refresh-button"
+          (click)="refreshGrid()"
+        >
+          <mat-icon>refresh</mat-icon>
+        </button>
+        <span>Mês</span>
+      </div>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.mes }} </mat-cell>
+  </ng-container>
+
+    <ng-container matColumnDef="ano">
+      <mat-header-cell *matHeaderCellDef> Ano </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.ano }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="produtoCodigo">
+      <mat-header-cell *matHeaderCellDef> Código do Produto </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.produtoCodigo }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="produtoDescricao">
+      <mat-header-cell *matHeaderCellDef> Descrição do Produto </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.descricao }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nrLancamento">
+      <mat-header-cell *matHeaderCellDef> NR Lançamento </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.nrLancamento }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <mat-header-cell *matHeaderCellDef> Descrição </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.descricao }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.valor | currency:'BRL' }} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="'header'"></mat-header-row>
+    <mat-row
+      *matRowDef="let row; let i = index; columns: displayedColumns;"
+      [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }">
+    </mat-row>
+  </mat-table>
+</div>

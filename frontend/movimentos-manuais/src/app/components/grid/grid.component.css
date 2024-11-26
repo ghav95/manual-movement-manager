@@ -1,0 +1,90 @@
+.even-row {
+  background-color: white !important; /* Light grey */
+}
+
+.odd-row {
+  background-color: lightgray !important; /* White */
+}
+
+.header{
+  background-color: lightgray !important; /* White */
+}
+
+.grid-container {
+  display: flex;
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Center the grid vertically */
+  padding: 16px; /* Add padding around the grid */
+  margin: 0 auto; /* Center the grid in the page */
+  max-width: 1200px; /* Limit the maximum width for larger screens */
+  width: 100%; /* Ensure the grid takes full width on smaller screens */
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+.mat-elevation-z8 {
+  width: 100%; /* Make the table responsive to the container */
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    flex-direction: column; /* Stack elements vertically for smaller screens */
+    padding: 8px; /* Reduce padding */
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  margin-bottom: 16px; /* Add spacing below the button */
+}
+
+.form-button {
+  font-size: 16px;
+  height: 36px;
+  min-width: 90px;
+}
+
+.header-with-button {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between the button and text */
+}
+
+.refresh-button {
+  padding: 4px; /* Smaller padding for icon button */
+  background-color: green;
+}
+
+
+
+.success-snackbar.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    background: green;
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .mat-mdc-snack-bar-label.mdc-snackbar__label {
+    color: white;
+    font-weight: 500;
+    white-space: pre-wrap
+  }
+}
+
+.success-snackbar.mat-mdc-snack-bar-container {
+  .mdc-snackbar__surface {
+    background: f44336;
+
+    .mat-mdc-button {
+      color: white !important;
+    }
+  }
+
+  .mat-mdc-snack-bar-label.mdc-snackbar__label {
+    color: white;
+    font-weight: 500;
+    white-space: pre-wrap
+  }
+}
