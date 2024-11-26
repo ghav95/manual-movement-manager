@@ -4,6 +4,33 @@
 
 Build a robust and scalable microsservice, using Clean Architecture, CQRS, Entity Framework and Docker. This MVP serve as a foundation for creating high-quality, maintainable, and testable, with a focus on simplicity.
 
+## 🚀 Getting Started
+
+### 📝 Prerequisites
+
+- **Docker** 
+- **.NET Framework 4.5**
+---
+1. **Clone the Repository**  
+
+   ```bash
+   git clone https://github.com/ghav95/manual-movement-manager.git
+   ```
+2. Open a terminal in the root of repository:
+   ```bash
+    cd ./manual-movement-manager
+   ```
+
+ 3. Build docker contaniers
+    ```bash
+    docker compose up --build -d
+    ```
+4. Run the .Net project (You can use VS Code, Visual Studio or `msbuild`)
+   - You can check if the backend is working in swagger http://localhost:49448/swagger/ui/index
+5. Go to http://localhost:4200/
+   
+---
+
 ## 🔑 Keywords
 - **Microsservice**
 - **DDD**
@@ -34,13 +61,3 @@ The project follows the **Clean Architecture** structure to promote modularity, 
 - **Docker**
 - **Angular**
 - **MediatoR**
-
-## 🚀 Getting Started
-
-### 📋 Prerequisites
-
-- **Docker**
-
-### 📝 Setup Instructions
-
-TODO
